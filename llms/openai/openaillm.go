@@ -137,9 +137,15 @@ func (o *LLM) GenerateContent(ctx context.Context, messages []llms.MessageConten
 		req.Tools = append(req.Tools, t)
 	}
 
-	// if o.client.ResponseFormat is set, use it for the request
-	if o.client.ResponseFormat != nil {
-		req.ResponseFormat = o.client.ResponseFormat
+	if opts.ResponseFormat != nil {
+		req.ResponseFormat = &openaiclient.ResponseFormat{
+			Type: opts.ResponseFormat.Type,
+			JSONSchema: openaiclient.ResponseFormatJSONSchema{
+				Name:   opts.ResponseFormat.Name,
+				Strict: opts.ResponseFormat.Strict,
+				Schema: opts.ResponseFormat.Schema,
+			},
+		}
 	}
 
 	result, err := o.client.CreateChat(ctx, req)

@@ -33,8 +33,6 @@ type options struct {
 	apiType      APIType
 	httpClient   openaiclient.Doer
 
-	responseFormat *ResponseFormat
-
 	// required when APIType is APITypeAzure or APITypeAzureAD
 	apiVersion     string
 	embeddingModel string
@@ -126,12 +124,5 @@ func WithHTTPClient(client openaiclient.Doer) Option {
 func WithCallback(callbackHandler callbacks.Handler) Option {
 	return func(opts *options) {
 		opts.callbackHandler = callbackHandler
-	}
-}
-
-// WithResponseFormat allows setting a custom response format.
-func WithResponseFormat(responseFormat *ResponseFormat) Option {
-	return func(opts *options) {
-		opts.responseFormat = responseFormat
 	}
 }

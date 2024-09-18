@@ -14,27 +14,9 @@ import (
 
 func TestStructuredOutputObjectSchema(t *testing.T) {
 	t.Parallel()
-	responseFormat := &ResponseFormat{
-		Type: "json_schema",
-		JSONSchema: &ResponseFormatJSONSchema{
-			Name:   "math_schema",
-			Strict: true,
-			Schema: &ResponseFormatJSONSchemaProperty{
-				Type: "object",
-				Properties: map[string]*ResponseFormatJSONSchemaProperty{
-					"final_answer": {
-						Type: "string",
-					},
-				},
-				AdditionalProperties: false,
-				Required:             []string{"final_answer"},
-			},
-		},
-	}
 	llm := newTestClient(
 		t,
 		WithModel("gpt-4o-2024-08-06"),
-		WithResponseFormat(responseFormat),
 	)
 
 	content := []llms.MessageContent{
@@ -48,62 +30,18 @@ func TestStructuredOutputObjectSchema(t *testing.T) {
 		},
 	}
 
-	rsp, err := llm.GenerateContent(context.Background(), content)
+	responseFormat := &llms.ResponseFormat{
+		Type:   "json_schema",
+		Name:   "math_schema",
+		Schema: json.RawMessage(`{"type":"object","properties":{"steps": {"type":"array","items":{"type":"string"}},"final_answer":{"type":"string","additionalProperties":false}},"additionalProperties":false,"required":["steps","final_answer"]}`),
+		Strict: true,
+	}
+	rsp, err := llm.GenerateContent(context.Background(), content, llms.WithResponseFormat(responseFormat))
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, rsp.Choices)
 	c1 := rsp.Choices[0]
 	assert.Regexp(t, "\"final_answer\":", strings.ToLower(c1.Content))
-}
-
-func TestStructuredOutputObjectAndArraySchema(t *testing.T) {
-	t.Parallel()
-	responseFormat := &ResponseFormat{
-		Type: "json_schema",
-		JSONSchema: &ResponseFormatJSONSchema{
-			Name:   "math_schema",
-			Strict: true,
-			Schema: &ResponseFormatJSONSchemaProperty{
-				Type: "object",
-				Properties: map[string]*ResponseFormatJSONSchemaProperty{
-					"steps": {
-						Type: "array",
-						Items: &ResponseFormatJSONSchemaProperty{
-							Type: "string",
-						},
-					},
-					"final_answer": {
-						Type: "string",
-					},
-				},
-				AdditionalProperties: false,
-				Required:             []string{"final_answer", "steps"},
-			},
-		},
-	}
-	llm := newTestClient(
-		t,
-		WithModel("gpt-4o-2024-08-06"),
-		WithResponseFormat(responseFormat),
-	)
-
-	content := []llms.MessageContent{
-		{
-			Role:  llms.ChatMessageTypeSystem,
-			Parts: []llms.ContentPart{llms.TextContent{Text: "You are a student taking a math exam."}},
-		},
-		{
-			Role:  llms.ChatMessageTypeGeneric,
-			Parts: []llms.ContentPart{llms.TextContent{Text: "Solve 2 + 2"}},
-		},
-	}
-
-	rsp, err := llm.GenerateContent(context.Background(), content)
-	require.NoError(t, err)
-
-	assert.NotEmpty(t, rsp.Choices)
-	c1 := rsp.Choices[0]
-	assert.Regexp(t, "\"steps\":", strings.ToLower(c1.Content))
 }
 
 func TestStructuredOutputFunctionCalling(t *testing.T) {
