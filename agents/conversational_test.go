@@ -6,11 +6,11 @@ import (
 	"regexp"
 	"testing"
 
+	"github.com/masacento/langchaingo/chains"
+	"github.com/masacento/langchaingo/llms/openai"
+	"github.com/masacento/langchaingo/memory"
+	"github.com/masacento/langchaingo/tools"
 	"github.com/stretchr/testify/require"
-	"github.com/tmc/langchaingo/chains"
-	"github.com/tmc/langchaingo/llms/openai"
-	"github.com/tmc/langchaingo/memory"
-	"github.com/tmc/langchaingo/tools"
 )
 
 func TestConversationalWithMemory(t *testing.T) {

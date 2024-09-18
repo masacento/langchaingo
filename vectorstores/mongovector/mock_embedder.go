@@ -7,9 +7,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/schema"
-	"github.com/tmc/langchaingo/vectorstores"
+	"github.com/masacento/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/schema"
+	"github.com/masacento/langchaingo/vectorstores"
 )
 
 type mockEmbedder struct {

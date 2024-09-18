@@ -10,10 +10,10 @@ import (
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"
+	"github.com/masacento/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/schema"
+	"github.com/masacento/langchaingo/vectorstores"
 	"github.com/pgvector/pgvector-go"
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/schema"
-	"github.com/tmc/langchaingo/vectorstores"
 )
 
 const (

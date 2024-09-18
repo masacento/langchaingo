@@ -10,11 +10,11 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/masacento/langchaingo/tools/sqldatabase"
+	_ "github.com/masacento/langchaingo/tools/sqldatabase/mysql"
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/modules/mysql"
-	"github.com/tmc/langchaingo/tools/sqldatabase"
-	_ "github.com/tmc/langchaingo/tools/sqldatabase/mysql"
 )
 
 func Test(t *testing.T) {

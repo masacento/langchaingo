@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tmc/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/embeddings"
 )
 
 const (

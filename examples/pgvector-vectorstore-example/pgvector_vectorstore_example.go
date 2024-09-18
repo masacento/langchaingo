@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/tmc/langchaingo/llms/openai"
-	"github.com/tmc/langchaingo/schema"
-	"github.com/tmc/langchaingo/vectorstores/pgvector"
+	"github.com/masacento/langchaingo/llms/openai"
+	"github.com/masacento/langchaingo/schema"
+	"github.com/masacento/langchaingo/vectorstores/pgvector"
 
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/vectorstores"
+	"github.com/masacento/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/vectorstores"
 )
 
 func main() {

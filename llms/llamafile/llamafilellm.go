@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/tmc/langchaingo/callbacks"
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/llms/llamafile/internal/llamafileclient"
+	"github.com/masacento/langchaingo/callbacks"
+	"github.com/masacento/langchaingo/llms"
+	"github.com/masacento/langchaingo/llms/llamafile/internal/llamafileclient"
 )
 
 var (

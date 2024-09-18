@@ -4,8 +4,8 @@ package callbacks
 import (
 	"context"
 
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/schema"
+	"github.com/masacento/langchaingo/llms"
+	"github.com/masacento/langchaingo/schema"
 )
 
 type SimpleHandler struct{}

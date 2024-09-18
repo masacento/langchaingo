@@ -6,10 +6,10 @@ import (
 	"log"
 	"strings"
 
-	"github.com/tmc/langchaingo/chains"
-	"github.com/tmc/langchaingo/documentloaders"
-	"github.com/tmc/langchaingo/llms/mistral"
-	"github.com/tmc/langchaingo/textsplitter"
+	"github.com/masacento/langchaingo/chains"
+	"github.com/masacento/langchaingo/documentloaders"
+	"github.com/masacento/langchaingo/llms/mistral"
+	"github.com/masacento/langchaingo/textsplitter"
 )
 
 func main() {

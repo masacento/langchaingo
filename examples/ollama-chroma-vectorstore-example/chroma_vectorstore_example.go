@@ -8,11 +8,11 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/llms/ollama"
-	"github.com/tmc/langchaingo/schema"
-	"github.com/tmc/langchaingo/vectorstores"
-	"github.com/tmc/langchaingo/vectorstores/chroma"
+	"github.com/masacento/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/llms/ollama"
+	"github.com/masacento/langchaingo/schema"
+	"github.com/masacento/langchaingo/vectorstores"
+	"github.com/masacento/langchaingo/vectorstores/chroma"
 )
 
 func main() {

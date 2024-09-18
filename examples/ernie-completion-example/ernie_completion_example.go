@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/llms/ernie"
+	"github.com/masacento/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/llms"
+	"github.com/masacento/langchaingo/llms/ernie"
 )
 
 func main() {

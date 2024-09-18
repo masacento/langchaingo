@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/schema"
+	"github.com/masacento/langchaingo/llms"
+	"github.com/masacento/langchaingo/schema"
 )
 
 // LogHandler is a callback handler that prints to the standard output.

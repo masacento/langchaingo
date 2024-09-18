@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/llms/openai"
+	"github.com/masacento/langchaingo/llms"
+	"github.com/masacento/langchaingo/llms/openai"
 )
 
 func main() {

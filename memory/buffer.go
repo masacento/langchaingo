@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tmc/langchaingo/llms"
-	"github.com/tmc/langchaingo/schema"
+	"github.com/masacento/langchaingo/llms"
+	"github.com/masacento/langchaingo/schema"
 )
 
 // ErrInvalidInputValues is returned when input values given to a memory in save context are invalid.

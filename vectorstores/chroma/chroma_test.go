@@ -9,15 +9,15 @@ import (
 
 	chromatypes "github.com/amikos-tech/chroma-go/types"
 	"github.com/google/uuid"
+	"github.com/masacento/langchaingo/chains"
+	"github.com/masacento/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/llms/openai"
+	"github.com/masacento/langchaingo/schema"
+	"github.com/masacento/langchaingo/vectorstores"
+	"github.com/masacento/langchaingo/vectorstores/chroma"
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
 	tcchroma "github.com/testcontainers/testcontainers-go/modules/chroma"
-	"github.com/tmc/langchaingo/chains"
-	"github.com/tmc/langchaingo/embeddings"
-	"github.com/tmc/langchaingo/llms/openai"
-	"github.com/tmc/langchaingo/schema"
-	"github.com/tmc/langchaingo/vectorstores"
-	"github.com/tmc/langchaingo/vectorstores/chroma"
 )
 
 // TODO (noodnik2):

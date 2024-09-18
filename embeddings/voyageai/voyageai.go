@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tmc/langchaingo/embeddings"
+	"github.com/masacento/langchaingo/embeddings"
 )
 
 var _ embeddings.Embedder = &VoyageAI{}
